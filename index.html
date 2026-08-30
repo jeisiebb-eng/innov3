@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Básico -->
+    <title>Innova 3D | Impresión 3D, Diseño y Fabricación Personalizada</title>
+    <meta name="description" content="Transformamos tus ideas en productos reales. Diseño, impresión 3D, prototipos y soluciones personalizadas para salud, educación, emprendimientos y proyectos especiales.">
+    <meta name="keywords" content="Impresión 3D Chile, Impresión 3D personalizada, Diseño 3D, Fabricación 3D, Prototipos 3D, Productos personalizados, Impresión 3D para salud, Impresión 3D para educación, Prototipado rápido, Fabricación personalizada">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            card: '#131A2B',
+                            accent: '#3B82F6',
+                            purple: '#8B5CF6',
+                            emerald: '#10B981',
+                            glow: '#60A5FA'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js para interactividad simple sin jQuery/React extra -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F19;
+            color: #F3F4F6;
+        }
+        
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.3);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 50px -10px rgba(139, 92, 246, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(19, 26, 43, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white" x-data="{ mobileMenuOpen: false }">
+
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20quiero%20solicitar%20una%20cotizaci%C3%B3n%20para%20mi%20proyecto." 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group focus:outline-none focus:ring-4 focus:ring-emerald-500/50"
+       aria-label="Contactar por WhatsApp">
+        <svg class="w-8 h-8 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span class="absolute right-full mr-3 px-3 py-1 bg-gray-900 text-white text-xs font-semibold rounded-lg shadow-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border border-gray-700">
+            Cotizar por WhatsApp
+        </span>
+    </a>
+
+    <!-- HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <!-- Isometric 3D Logo Emblem (i3D) -->
+                <div class="w-11 h-11 flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+                    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-[0_0_12px_rgba(59,130,246,0.4)]">
+                        <defs>
+                            <linearGradient id="hdrPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#D8B4FE"/>
+                                <stop offset="50%" stop-color="#9333EA"/>
+                                <stop offset="100%" stop-color="#581C87"/>
+                            </linearGradient>
+                            <linearGradient id="hdrBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#60A5FA"/>
+                                <stop offset="50%" stop-color="#2563EB"/>
+                                <stop offset="100%" stop-color="#1E3A8A"/>
+                            </linearGradient>
+                            <linearGradient id="hdrCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#38BDF8"/>
+                                <stop offset="100%" stop-color="#0284C7"/>
+                            </linearGradient>
+                        </defs>
+                        <!-- 'i' Floating Top Cube -->
+                        <path d="M 28 40 L 48 28 L 68 40 L 48 52 Z" fill="url(#hdrCyanGrad)" />
+                        <path d="M 28 40 L 48 52 L 48 72 L 28 60 Z" fill="#0284C7" />
+                        <path d="M 48 52 L 68 40 L 68 60 L 48 72 Z" fill="#0369A1" />
+
+                        <!-- 'i' Lower Stem -->
+                        <path d="M 28 82 L 48 94 L 48 152 L 28 140 Z" fill="url(#hdrPurpleGrad)" />
+                        <path d="M 48 94 L 68 82 L 68 140 L 48 152 Z" fill="#6B21A8" />
+
+                        <!-- Isometric Hexagon 'D' Shell (Blue) -->
+                        <path d="M 98 22 L 168 62 L 168 138 L 98 178 L 98 144 L 144 118 L 144 82 L 98 56 Z" fill="url(#hdrBlueGrad)" />
+                        <path d="M 144 82 L 168 62 L 168 138 L 144 118 Z" fill="#1D4ED8" />
+
+                        <!-- Isometric '3' Inner Structure (Purple) -->
+                        <path d="M 78 48 L 128 76 L 106 88 L 128 102 L 78 132 L 78 114 L 106 97 L 88 86 L 106 75 L 78 60 Z" fill="url(#hdrPurpleGrad)" />
+                    </svg>
+                </div>
+
+                <div>
+                    <!-- Brand Typography matching logo font style -->
+                    <div class="flex items-baseline text-2xl font-black tracking-tight leading-none">
+                        <span class="text-white font-sans lowercase">innova</span>
+                        <span class="text-purple-400 lowercase ml-0.5">3</span>
+                        <span class="text-blue-500 lowercase">d</span>
+                    </div>
+                    <span class="block text-[10px] font-medium text-gray-400 uppercase tracking-widest mt-1">
+                        Tu idea, hecha realidad
+                    </span>
+                </div>
+            </a>
+
+            <!-- NAV ESCRITORIO -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#inicio" class="hover:text-brand-accent transition-colors">Inicio</a>
+                <a href="#que-hacemos" class="hover:text-brand-accent transition-colors">¿Qué hacemos?</a>
+                <a href="#servicios" class="hover:text-brand-accent transition-colors">Servicios</a>
+                <a href="#especiales" class="hover:text-brand-accent transition-colors">Salud & Educación</a>
+                <a href="#proceso" class="hover:text-brand-accent transition-colors">Proceso</a>
+                <a href="#faq" class="hover:text-brand-accent transition-colors">FAQ</a>
+            </nav>
+
+            <!-- BOTÓN HEADER -->
+            <div class="hidden lg:flex items-center">
+                <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20quiero%20solicitar%20una%20cotizaci%C3%B3n" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-brand-accent to-blue-600 rounded-lg hover:from-blue-600 hover:to-blue-700 shadow-md shadow-blue-500/20 transition-all hover:scale-105">
+                    Cotizar Proyecto
+                </a>
+            </div>
+
+            <!-- BOTÓN MENÚ MÓVIL -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path x-show="!mobileMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path x-show="mobileMenuOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- MENÚ DESPLEGABLE MÓVIL -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden bg-brand-card border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a @click="mobileMenuOpen = false" href="#inicio" class="block py-2 text-gray-300 hover:text-white">Inicio</a>
+            <a @click="mobileMenuOpen = false" href="#que-hacemos" class="block py-2 text-gray-300 hover:text-white">¿Qué hacemos?</a>
+            <a @click="mobileMenuOpen = false" href="#servicios" class="block py-2 text-gray-300 hover:text-white">Servicios</a>
+            <a @click="mobileMenuOpen = false" href="#especiales" class="block py-2 text-gray-300 hover:text-white">Salud & Educación</a>
+            <a @click="mobileMenuOpen = false" href="#proceso" class="block py-2 text-gray-300 hover:text-white">Proceso</a>
+            <a @click="mobileMenuOpen = false" href="#faq" class="block py-2 text-gray-300 hover:text-white">FAQ</a>
+            <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20quiero%20solicitar%20una%20cotizaci%C3%B3n" 
+               target="_blank"
+               class="w-full text-center block mt-4 px-5 py-3 text-sm font-semibold text-white bg-brand-accent rounded-lg">
+                Cotizar por WhatsApp
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. HERO / PORTADA -->
+    <section id="inicio" class="relative overflow-hidden bg-grid-pattern pt-12 pb-20 md:pt-20 md:pb-32">
+        <!-- Glows de fondo -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 right-10 w-80 h-80 bg-brand-purple/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- TEXTO HERO -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-glow text-xs font-semibold tracking-wide uppercase">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+                        Fabricación Digital & Prototipado
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Tu idea, <br class="hidden sm:inline"/>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+                            hecha realidad.
+                        </span>
+                    </h1>
+
+                    <p class="text-xl font-medium text-gray-300 max-w-2xl mx-auto lg:mx-0">
+                        Diseñamos y fabricamos soluciones en 3D adaptadas a tus necesidades.
+                    </p>
+
+                    <p class="text-base text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                        Desde piezas personalizadas y prototipos hasta soluciones para salud, educación y proyectos especiales. Convertimos tus ideas y necesidades en productos reales mediante tecnología de impresión 3D.
+                    </p>
+
+                    <!-- BOTONES ACCIÓN -->
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20quiero%20solicitar%20una%20cotizaci%C3%B3n" 
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-xl shadow-lg shadow-emerald-500/25 transition-all hover:scale-[1.02]">
+                            <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            SOLICITAR COTIZACIÓN
+                        </a>
+
+                        <a href="#servicios" 
+                           class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-gray-200 bg-brand-card hover:bg-gray-800 border border-gray-700 rounded-xl transition-all">
+                            CONOCER NUESTROS SERVICIOS
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ILUSTRACIÓN / RENDER HERO -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-lg">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-accent to-brand-purple rounded-3xl blur opacity-30 animate-pulse"></div>
+                        <div class="relative rounded-2xl bg-brand-card border border-gray-800 overflow-hidden shadow-2xl p-4">
+                            <!-- SVG Render Ilustrativo de Impresión 3D y Prototipado Avanzado -->
+                            <svg viewBox="0 0 500 400" class="w-full h-auto rounded-xl bg-gray-950/80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="500" height="400" fill="#070A11"/>
+                                <!-- Grid Base -->
+                                <path d="M50 320 L250 380 L450 320 L250 260 Z" stroke="#1E293B" stroke-width="2" fill="#0F172A"/>
+                                <path d="M100 305 L250 350 L400 305" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+                                <path d="M150 290 L250 320 L350 290" stroke="#334155" stroke-width="1" stroke-dasharray="4 4"/>
+                                
+                                <!-- Pieza Impresa en 3D (Cubo Estructurado e Isométrico Tecnológico) -->
+                                <g transform="translate(0, -30)">
+                                    <path d="M250 140 L340 190 L250 240 L160 190 Z" fill="#2563EB" fill-opacity="0.2" stroke="#60A5FA" stroke-width="2"/>
+                                    <path d="M160 190 L160 280 L250 330 L250 240 Z" fill="#1D4ED8" fill-opacity="0.4" stroke="#3B82F6" stroke-width="2"/>
+                                    <path d="M340 190 L340 280 L250 330 L250 240 Z" fill="#1E40AF" fill-opacity="0.6" stroke="#2563EB" stroke-width="2"/>
+                                    
+                                    <!-- Capas de Impresión Líneas -->
+                                    <path d="M160 210 L250 260 L340 210" stroke="#93C5FD" stroke-width="1" stroke-opacity="0.5"/>
+                                    <path d="M160 230 L250 280 L340 230" stroke="#93C5FD" stroke-width="1" stroke-opacity="0.5"/>
+                                    <path d="M160 250 L250 300 L340 250" stroke="#93C5FD" stroke-width="1" stroke-opacity="0.5"/>
+                                    <path d="M160 270 L250 320 L340 270" stroke="#93C5FD" stroke-width="1" stroke-opacity="0.5"/>
+                                </g>
+
+                                <!-- Cabezal Extrusor y Láser Láser de Impresión -->
+                                <g>
+                                    <path d="M220 50 L280 50 L265 100 L235 100 Z" fill="#475569" stroke="#94A3B8" stroke-width="2"/>
+                                    <rect x="242" y="100" width="16" height="20" fill="#E2E8F0"/>
+                                    <!-- Boquilla -->
+                                    <path d="M245 120 L255 120 L250 128 Z" fill="#F59E0B"/>
+                                    
+                                    <!-- Láser / Hilo de Precisión -->
+                                    <line x1="250" y1="128" x2="250" y2="210" stroke="#38BDF8" stroke-width="2" stroke-dasharray="2 2"/>
+                                    <circle cx="250" cy="210" r="4" fill="#38BDF8">
+                                        <animate attributeName="r" values="3;6;3" dur="1.5s" repeatCount="indefinite"/>
+                                    </circle>
+                                </g>
+
+                                <!-- Nodos Digitales -->
+                                <circle cx="160" cy="160" r="5" fill="#8B5CF6"/>
+                                <circle cx="340" cy="160" r="5" fill="#8B5CF6"/>
+                                <circle cx="250" cy="110" r="5" fill="#8B5CF6"/>
+                                <line x1="160" y1="160" x2="250" y2="110" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="2 2"/>
+                                <line x1="340" y1="160" x2="250" y2="110" stroke="#8B5CF6" stroke-width="1" stroke-dasharray="2 2"/>
+
+                                <!-- Badge Flotante -->
+                                <rect x="30" y="30" width="160" height="40" rx="8" fill="#1E293B" stroke="#334155"/>
+                                <text x="45" y="55" fill="#F8FAFC" font-size="12" font-family="sans-serif" font-weight="bold">Alta Precisión 3D</text>
+                            </svg>
+
+                            <div class="p-4 bg-brand-dark/90 flex items-center justify-between text-xs text-gray-400 border-t border-gray-800">
+                                <span class="flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    Modelado & Prototipado
+                                </span>
+                                <span class="font-mono text-brand-glow">CAD / FDM / SLA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. BARRA DE CONFIANZA -->
+    <section class="border-y border-gray-800/80 bg-brand-dark/50 py-8 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                
+                <!-- Concepto 1 -->
+                <div class="flex flex-col items-center justify-center p-3">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-brand-accent flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a2 2 0 002 2h3a2 2 0 012 2v1a2 2 0 00-2 2v3a2 2 0 01-2 2h-1a2 2 0 01-2-2v-1a2 2 0 00-2-2H9a2 2 0 00-2 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-3a2 2 0 012-2V9a2 2 0 012-2h3a2 2 0 002-2V4z"/></svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-white">Diseño Personalizado</h3>
+                </div>
+
+                <!-- Concepto 2 -->
+                <div class="flex flex-col items-center justify-center p-3">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-brand-purple flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.605 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-white">Fabricación 3D</h3>
+                </div>
+
+                <!-- Concepto 3 -->
+                <div class="flex flex-col items-center justify-center p-3">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-white">Atención Personalizada</h3>
+                </div>
+
+                <!-- Concepto 4 -->
+                <div class="flex flex-col items-center justify-center p-3">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-brand-glow flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="text-sm font-semibold text-white">Soluciones a Medida</h3>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SECCIÓN "¿QUÉ HACEMOS?" Y PROBLEMA -->
+    <section id="que-hacemos" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Convertimos ideas en productos reales.
+                </h2>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    En Innova 3D ofrecemos servicios de impresión 3D, diseño y fabricación de productos personalizados. Trabajamos junto a cada cliente para comprender su necesidad y desarrollar una solución práctica, funcional y adaptada a sus requerimientos.
+                </p>
+                <div class="mt-6 inline-block px-6 py-2 rounded-full bg-brand-purple/20 border border-brand-purple/40 text-purple-300 font-bold text-lg">
+                    “No solo imprimimos. Diseñamos soluciones.”
+                </div>
+            </div>
+
+            <!-- PROBLEMA CLIENTE Y SOLUCIÓN -->
+            <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                <!-- Tarjeta El Problema -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between border-l-4 border-l-red-500">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-red-400 font-semibold text-sm mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            El Desafío Frecuente
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">¿Tienes una necesidad o idea pero no sabes cómo fabricarla?</h3>
+                        <ul class="space-y-3 text-gray-300 text-sm">
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400 font-bold">•</span>
+                                No encuentras la pieza o el repuesto exacto en el mercado.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400 font-bold">•</span>
+                                Las alternativas tradicionales de matriz/molde son extremadamente costosas.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400 font-bold">•</span>
+                                No necesitas miles de unidades, solo una pieza única o pocas cantidades.
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-red-400 font-bold">•</span>
+                                Quieres probar un prototipo antes de realizar una inversión mayor.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Tarjeta La Solución Innova 3D -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between border-l-4 border-l-brand-accent bg-gradient-to-br from-brand-card to-brand-dark">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-brand-glow font-semibold text-sm mb-4">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            La Solución Innova 3D
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Somos el puente entre tu idea y el producto final</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                            Simplificamos todo el proceso. No necesitas conocimientos técnicos sobre 3D; solo tráenos tu inquietud, dibujo, foto o muestra física, y nosotros nos encargamos del restructurado, diseño y fabricación digital.
+                        </p>
+                        <div class="p-4 rounded-xl bg-blue-950/40 border border-blue-800/40 text-blue-200 text-xs font-mono">
+                            Resultado: Productos funcionales, precisos y listos para usar en tiempos récord.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN DE SERVICIOS -->
+    <section id="servicios" class="py-20 bg-brand-dark/80 relative border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Nuestros Servicios Especializados
+                </h2>
+                <p class="text-gray-400">
+                    Soluciones avanzadas de diseño y fabricación digital para cada requerimiento.
+                </p>
+            </div>
+
+            <!-- GRID DE SERVICIOS -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- SERVICIO 1 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-brand-accent flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Impresión 3D</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Fabricación de piezas y productos personalizados mediante tecnología de impresión 3D de alta precisión y diversos materiales técnicos.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20me%20interesa%20consultar%20por%20el%20servicio%20de%20Impresi%C3%B3n%203D" 
+                       target="_blank"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-blue-300">
+                        Consultar Servicio →
+                    </a>
+                </div>
+
+                <!-- SERVICIO 2 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-brand-purple flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Diseño 3D</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Desarrollo, modelado CAD y adaptación de diseños según las necesidades específicas de cada proyecto o muestra entregada.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20me%20interesa%20consultar%20por%20el%20servicio%20de%20Dise%C3%B1o%203D" 
+                       target="_blank"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-blue-300">
+                        Consultar Servicio →
+                    </a>
+                </div>
+
+                <!-- SERVICIO 3 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.605 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Prototipado</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Transformamos una idea o concepto en un prototipo físico para evaluar, probar y validar la funcionalidad antes de una fabricación mayor.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20me%20interesa%20consultar%20por%20el%20servicio%20de%20Prototipado" 
+                       target="_blank"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-blue-300">
+                        Consultar Servicio →
+                    </a>
+                </div>
+
+                <!-- SERVICIO 4 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between border-brand-accent/30">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-brand-glow flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Soluciones para Salud</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Desarrollo de productos, modelos anatómicos, guías y soluciones personalizadas adaptadas a profesionales de la salud.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20me%20interesa%20consultar%20por%20Soluciones%20para%20Salud" 
+                       target="_blank"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-blue-300">
+                        Consultar Servicio →
+                    </a>
+                </div>
+
+                <!-- SERVICIO 5 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between border-brand-purple/30">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-brand-purple flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Soluciones para Educación</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Creación de modelos, material didáctico interactivo, maquetas y recursos adaptados para instituciones y docentes.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20me%20interesa%20consultar%20por%20Soluciones%20para%20Educaci%C3%B3n" 
+                       target="_blank"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-blue-300">
+                        Consultar Servicio →
+                    </a>
+                </div>
+
+                <!-- SERVICIO 6 -->
+                <div class="glass-card rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Productos Personalizados</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Fabricación de objetos únicos, repuestos difíciles de conseguir, accesorios y soluciones exclusivas según la especificación del cliente.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20me%20interesa%20consultar%20por%20Productos%20Personalizados" 
+                       target="_blank"
+                       class="inline-flex items-center text-sm font-semibold text-brand-accent hover:text-blue-300">
+                        Consultar Servicio →
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. SECCIÓN "¿POR QUÉ INNOVA 3D?" -->
+    <section class="py-20 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Una solución pensada para ti.
+                </h2>
+                <p class="text-gray-400">
+                    Beneficios concretos de trabajar con un equipo especialista en diseño y tecnología 3D.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-blue-500/10 text-brand-accent flex items-center justify-center font-extrabold">
+                        01
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Personalización</h3>
+                    <p class="text-gray-400 text-sm">
+                        Cada proyecto es diferente. Fabricamos soluciones adaptadas a las necesidades específicas de cada cliente.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-purple-500/10 text-brand-purple flex items-center justify-center font-extrabold">
+                        02
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Rapidez</h3>
+                    <p class="text-gray-400 text-sm">
+                        La fabricación 3D nos permite desarrollar y producir soluciones de manera ágil, flexible y sin largas esperas.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center font-extrabold">
+                        03
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Ahorro</h3>
+                    <p class="text-gray-400 text-sm">
+                        Una alternativa eficiente frente a métodos tradicionales de fabricación, especialmente en proyectos únicos o prototipos.
+                    </p>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl text-center">
+                    <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-extrabold">
+                        04
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Atención Personalizada</h3>
+                    <p class="text-gray-400 text-sm">
+                        Te acompañamos cercanamente desde la idea inicial hasta obtener una solución física concreta y funcional.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. SECCIÓN DIFERENCIAL (DESTACADA) -->
+    <section class="py-16 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative rounded-3xl bg-gradient-to-r from-blue-900/60 via-brand-card to-purple-900/60 border border-brand-accent/30 p-8 md:p-14 glow-effect text-center md:text-left">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    
+                    <div class="md:col-span-8 space-y-4">
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight">
+                            No buscamos simplemente imprimir un producto.
+                        </h2>
+                        <p class="text-lg text-gray-300">
+                            Primero entendemos lo que necesitas. Después buscamos la mejor manera de convertir esa necesidad en una solución.
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            En Innova 3D combinamos tecnología, creatividad, diseño y fabricación personalizada para desarrollar productos que realmente respondan a las necesidades de nuestros clientes.
+                        </p>
+                    </div>
+
+                    <div class="md:col-span-4 flex flex-col items-center justify-center border-t md:border-t-0 md:border-l border-gray-700/60 pt-6 md:pt-0 md:pl-8">
+                        <div class="text-xs font-semibold text-brand-glow uppercase tracking-widest mb-3">Nuestra Fórmula</div>
+                        <div class="flex flex-wrap gap-2 justify-center text-xs font-bold text-white">
+                            <span class="px-3 py-1.5 rounded-lg bg-blue-600/30 border border-blue-400/30">Tecnología</span>
+                            <span class="text-gray-500 self-center">+</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-purple-600/30 border border-purple-400/30">Diseño</span>
+                            <span class="text-gray-500 self-center">+</span>
+                            <span class="px-3 py-1.5 rounded-lg bg-emerald-600/30 border border-emerald-400/30">Personalización</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SECCIÓN "¿TIENES UNA IDEA?" (CALL TO ACTION EMOCIONAL) -->
+    <section class="py-16 bg-gradient-to-b from-brand-dark to-brand-card text-center">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">
+                ¿Tienes una idea, pero no sabes cómo hacerla realidad?
+            </h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                No tienes que saber de impresión 3D ni contar con planos complejos. Cuéntanos qué necesitas y nuestro equipo te asesorará para evaluar tu proyecto y encontrar la mejor solución.
+            </p>
+            <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20tengo%20una%20idea%20y%20quiero%20cotizar%20mi%20proyecto" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center justify-center px-10 py-5 text-lg font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-2xl shadow-xl shadow-emerald-500/30 transition-all hover:scale-105">
+                <svg class="w-6 h-6 mr-3 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                QUIERO COTIZAR MI PROYECTO
+            </a>
+        </div>
+    </section>
+
+    <!-- 8. PROCESO DE TRABAJO -->
+    <section id="proceso" class="py-20 bg-brand-dark border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Tu proyecto en 4 pasos simples
+                </h2>
+                <p class="text-gray-400">
+                    Proceso transparente, ágil y orientado a brindarte resultados exactos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Paso 1 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <span class="text-4xl font-black text-brand-accent/30 absolute top-4 right-4">01</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Cuéntanos tu idea</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Explícanos qué necesitas, envíanos fotografías, medidas, referencias o una descripción breve del proyecto.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <span class="text-4xl font-black text-brand-accent/30 absolute top-4 right-4">02</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Evaluamos tu proyecto</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Analizamos las características y necesidades técnicas para determinar la mejor alternativa de fabricación y cotizarte.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <span class="text-4xl font-black text-brand-accent/30 absolute top-4 right-4">03</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Diseñamos y fabricamos</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Desarrollamos el modelo 3D y realizamos la impresión con materiales de calidad según las especificaciones acordadas.
+                    </p>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="glass-card rounded-2xl p-6 relative">
+                    <span class="text-4xl font-black text-brand-accent/30 absolute top-4 right-4">04</span>
+                    <h3 class="text-lg font-bold text-white mb-2">Recibes tu solución</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Obtienes un producto personalizado desarrollado específicamente para responder a tu requerimiento.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20quiero%20comenzar%20mi%20proyecto" 
+                   target="_blank"
+                   class="inline-flex items-center px-8 py-3.5 bg-brand-accent hover:bg-blue-600 text-white font-bold rounded-xl transition-all">
+                    COMENZAR MI PROYECTO
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9. SECCIÓN PARA SALUD Y EDUCACIÓN -->
+    <section id="especiales" class="py-20 bg-brand-card/50 relative border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <!-- BLOQUE SALUD -->
+                <div class="glass-card rounded-3xl p-8 md:p-10 border-brand-accent/40 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-brand-glow text-xs font-semibold mb-6">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                            Área Salud
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                            Tecnología 3D aplicada a la salud.
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-8">
+                            Desarrollamos soluciones personalizadas para profesionales del área de la salud, adaptándonos a las necesidades específicas de cada proyecto, modelos de estudio, adaptaciones y piezas técnicas a medida.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20busco%20una%20soluci%C3%B3n%20para%20el%20%C3%A1rea%20de%20Salud" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl text-sm transition-colors">
+                        CONSULTAR SOLUCIÓN PARA SALUD
+                    </a>
+                </div>
+
+                <!-- BLOQUE EDUCACIÓN -->
+                <div class="glass-card rounded-3xl p-8 md:p-10 border-brand-purple/40 flex flex-col justify-between">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 text-xs font-semibold mb-6">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/></svg>
+                            Sector Educación
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                            Aprender también puede ser tangible.
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-8">
+                            Creamos modelos, prototipos y recursos educativos mediante impresión 3D para ayudar a transformar conceptos abstractos e ideas en experiencias físicas, visuales e interactivas.
+                        </p>
+                    </div>
+                    <a href="https://wa.me/56977469558?text=Hola,%20busco%20una%20soluci%C3%B3n%20para%20el%20%C3%A1rea%20de%20Educaci%C3%B3n" 
+                       target="_blank"
+                       class="inline-flex items-center justify-center px-6 py-3.5 bg-brand-purple hover:bg-purple-700 text-white font-semibold rounded-xl text-sm transition-colors">
+                        CONSULTAR SOLUCIÓN PARA EDUCACIÓN
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. SECCIÓN DE CASOS / PROYECTOS -->
+    <section class="py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Ideas que se convierten en realidad.
+                </h2>
+                <p class="text-gray-400">
+                    Ejemplos de la diversidad de soluciones que podemos proyectar y fabricar.
+                </p>
+            </div>
+
+            <!-- GALERÍA DE PROYECTOS TIPO MOOCKUP / PLANTILLA REALISTA -->
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- PROYECTO 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gray-900 relative flex items-center justify-center border-b border-gray-800">
+                        <div class="text-center p-4">
+                            <!-- SVG Placeholder Representativo de Prototipo Técnico -->
+                            <svg class="w-16 h-16 mx-auto text-brand-accent mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+                            <span class="text-xs text-gray-500 font-mono">Prototipo de Ingeniería</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Pieza de Reemplazo Industrial</h3>
+                        <p class="text-xs text-gray-400 mb-2"><strong class="text-gray-300">Necesidad:</strong> Repuesto discontinuado para maquinaria de producción.</p>
+                        <p class="text-xs text-gray-400"><strong class="text-brand-glow">Solución:</strong> Modelado 3D de alta precisión e impresión en filamento técnico resistente a impacto.</p>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gray-900 relative flex items-center justify-center border-b border-gray-800">
+                        <div class="text-center p-4">
+                            <!-- SVG Placeholder Representativo de Salud -->
+                            <svg class="w-16 h-16 mx-auto text-brand-purple mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.605 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+                            <span class="text-xs text-gray-500 font-mono">Modelo Anatómico de Estudio</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Modelo Quirúrgico Preoperatorio</h3>
+                        <p class="text-xs text-gray-400 mb-2"><strong class="text-gray-300">Necesidad:</strong> Guía de evaluación física para planificación médica.</p>
+                        <p class="text-xs text-gray-400"><strong class="text-brand-glow">Solución:</strong> Reconstrucción tridimensional a escala real para práctica prequirúrgica.</p>
+                    </div>
+                </div>
+
+                <!-- PROYECTO 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden group">
+                    <div class="h-48 bg-gray-900 relative flex items-center justify-center border-b border-gray-800">
+                        <div class="text-center p-4">
+                            <!-- SVG Placeholder Representativo de Producto Personalizado -->
+                            <svg class="w-16 h-16 mx-auto text-emerald-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 4a2 2 0 114 0v1a2 2 0 002 2h3a2 2 0 012 2v1a2 2 0 00-2 2v3a2 2 0 01-2 2h-1a2 2 0 01-2-2v-1a2 2 0 00-2-2H9a2 2 0 00-2 2v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-3a2 2 0 012-2V9a2 2 0 012-2h3a2 2 0 002-2V4z"/></svg>
+                            <span class="text-xs text-gray-500 font-mono">Recurso Didáctico</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold text-white mb-2">Material Educativo Interactivo</h3>
+                        <p class="text-xs text-gray-400 mb-2"><strong class="text-gray-300">Necesidad:</strong> Modelos táctiles para clases prácticas en aula.</p>
+                        <p class="text-xs text-gray-400"><strong class="text-brand-glow">Solución:</strong> Piezas encajables a medida resistentes al uso continuo de estudiantes.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 11. PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="py-20 bg-brand-card/30 border-t border-gray-800" x-data="{ openFaq: null }">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+                    Preguntas Frecuentes
+                </h2>
+                <p class="text-gray-400">
+                    Resolvemos tus dudas principales para que inicies tu proyecto con total tranquilidad.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                
+                <!-- FAQ 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button @click="openFaq === 1 ? openFaq = null : openFaq = 1" class="w-full text-left p-6 flex justify-between items-center font-semibold text-white hover:text-brand-glow transition-colors focus:outline-none">
+                        <span>¿Qué tipo de productos pueden fabricar?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': openFaq === 1}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="openFaq === 1" x-cloak class="px-6 pb-6 text-sm text-gray-300 border-t border-gray-800/50 pt-4">
+                        Trabajamos con piezas, productos, prototipos, modelos y soluciones personalizadas. La viabilidad depende de las características de cada proyecto.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button @click="openFaq === 2 ? openFaq = null : openFaq = 2" class="w-full text-left p-6 flex justify-between items-center font-semibold text-white hover:text-brand-glow transition-colors focus:outline-none">
+                        <span>¿Necesito tener un diseño 3D listo?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': openFaq === 2}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="openFaq === 2" x-cloak class="px-6 pb-6 text-sm text-gray-300 border-t border-gray-800/50 pt-4">
+                        No necesariamente. Si tienes una idea, una pieza de referencia, fotografías o medidas, podemos evaluar tu proyecto y determinar si requiere desarrollo o adaptación del diseño.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button @click="openFaq === 3 ? openFaq = null : openFaq = 3" class="w-full text-left p-6 flex justify-between items-center font-semibold text-white hover:text-brand-glow transition-colors focus:outline-none">
+                        <span>¿Puedo solicitar una pieza personalizada única?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': openFaq === 3}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="openFaq === 3" x-cloak class="px-6 pb-6 text-sm text-gray-300 border-t border-gray-800/50 pt-4">
+                        Sí. La personalización es uno de nuestros principales servicios. No exigimos mínimos de producción de miles de unidades.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button @click="openFaq === 4 ? openFaq = null : openFaq = 4" class="w-full text-left p-6 flex justify-between items-center font-semibold text-white hover:text-brand-glow transition-colors focus:outline-none">
+                        <span>¿Cuánto cuesta una impresión o proyecto 3D?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': openFaq === 4}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="openFaq === 4" x-cloak class="px-6 pb-6 text-sm text-gray-300 border-t border-gray-800/50 pt-4">
+                        El valor depende del tamaño, diseño, material, tiempo de impresión y complejidad del proyecto. Por eso realizamos cotizaciones personalizadas rápidas y sin compromiso.
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button @click="openFaq === 5 ? openFaq = null : openFaq = 5" class="w-full text-left p-6 flex justify-between items-center font-semibold text-white hover:text-brand-glow transition-colors focus:outline-none">
+                        <span>¿Trabajan con profesionales de la salud e instituciones educativas?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': openFaq === 5}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="openFaq === 5" x-cloak class="px-6 pb-6 text-sm text-gray-300 border-t border-gray-800/50 pt-4">
+                        Sí. Desarrollamos soluciones, prototipos y recursos adaptados para profesionales de la salud y colegios u universidades.
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gray-800">
+                    <button @click="openFaq === 6 ? openFaq = null : openFaq = 6" class="w-full text-left p-6 flex justify-between items-center font-semibold text-white hover:text-brand-glow transition-colors focus:outline-none">
+                        <span>¿Cómo solicito una cotización?</span>
+                        <svg class="w-5 h-5 transform transition-transform" :class="{'rotate-180': openFaq === 6}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="openFaq === 6" x-cloak class="px-6 pb-6 text-sm text-gray-300 border-t border-gray-800/50 pt-4">
+                        Es muy sencillo. Escríbenos directamente por WhatsApp al <strong class="text-emerald-400">+56977469558</strong> y cuéntanos qué necesitas.
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 12. LLAMADO A LA ACCIÓN FINAL -->
+    <section class="py-20 relative overflow-hidden bg-gradient-to-tr from-brand-dark via-blue-950 to-brand-dark border-t border-gray-800">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-6">
+                Tu idea puede convertirse en algo real.
+            </h2>
+            <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                Cuéntanos qué necesitas y descubre cómo podemos ayudarte a desarrollarlo mediante tecnología de impresión y diseño 3D.
+            </p>
+            <a href="https://wa.me/56977469558?text=Hola%20Innova%203D,%20quiero%20solicitar%20una%20cotizaci%C3%B3n" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white bg-emerald-500 hover:bg-emerald-600 rounded-2xl shadow-2xl shadow-emerald-500/40 transition-all hover:scale-105">
+                <svg class="w-7 h-7 mr-3 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.572-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                SOLICITAR COTIZACIÓN POR WHATSAPP
+            </a>
+            <p class="mt-4 text-xs text-gray-400 font-mono">
+                Atención directa: +56977469558
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-950 border-t border-gray-800 text-gray-400 text-sm py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-12 gap-8 mb-12">
+                
+                <!-- Columna Marca -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-9 h-9 flex-shrink-0">
+                            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <defs>
+                                    <linearGradient id="ftrPurpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#D8B4FE"/>
+                                        <stop offset="50%" stop-color="#9333EA"/>
+                                        <stop offset="100%" stop-color="#581C87"/>
+                                    </linearGradient>
+                                    <linearGradient id="ftrBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#60A5FA"/>
+                                        <stop offset="50%" stop-color="#2563EB"/>
+                                        <stop offset="100%" stop-color="#1E3A8A"/>
+                                    </linearGradient>
+                                    <linearGradient id="ftrCyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#38BDF8"/>
+                                        <stop offset="100%" stop-color="#0284C7"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M 28 40 L 48 28 L 68 40 L 48 52 Z" fill="url(#ftrCyanGrad)" />
+                                <path d="M 28 40 L 48 52 L 48 72 L 28 60 Z" fill="#0284C7" />
+                                <path d="M 48 52 L 68 40 L 68 60 L 48 72 Z" fill="#0369A1" />
+                                <path d="M 28 82 L 48 94 L 48 152 L 28 140 Z" fill="url(#ftrPurpleGrad)" />
+                                <path d="M 48 94 L 68 82 L 68 140 L 48 152 Z" fill="#6B21A8" />
+                                <path d="M 98 22 L 168 62 L 168 138 L 98 178 L 98 144 L 144 118 L 144 82 L 98 56 Z" fill="url(#ftrBlueGrad)" />
+                                <path d="M 144 82 L 168 62 L 168 138 L 144 118 Z" fill="#1D4ED8" />
+                                <path d="M 78 48 L 128 76 L 106 88 L 128 102 L 78 132 L 78 114 L 106 97 L 88 86 L 106 75 L 78 60 Z" fill="url(#ftrPurpleGrad)" />
+                            </svg>
+                        </div>
+                        <div class="flex items-baseline text-xl font-black tracking-tight leading-none">
+                            <span class="text-white font-sans lowercase">innova</span>
+                            <span class="text-purple-400 lowercase ml-0.5">3</span>
+                            <span class="text-blue-500 lowercase">d</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-brand-glow font-medium">“Tu idea, hecha realidad.”</p>
+                    <p class="text-xs text-gray-400 max-w-sm leading-relaxed">
+                        Diseño, impresión 3D y fabricación de soluciones personalizadas para salud, educación, emprendimientos y proyectos especiales.
+                    </p>
+                </div>
+
+                <!-- Columna Enlaces -->
+                <div class="md:col-span-3 space-y-2">
+                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-3">Navegación</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#inicio" class="hover:text-white transition-colors">Inicio</a></li>
+                        <li><a href="#que-hacemos" class="hover:text-white transition-colors">¿Qué hacemos?</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="#especiales" class="hover:text-white transition-colors">Salud y Educación</a></li>
+                        <li><a href="#faq" class="hover:text-white transition-colors">Preguntas Frecuentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna Contacto -->
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-3">Contacto Directo</h4>
+                    <p class="text-xs flex items-center gap-2">
+                        <span class="text-emerald-400 font-bold">WhatsApp:</span> 
+                        <a href="https://wa.me/56977469558" target="_blank" class="hover:text-white underline">+56977469558</a>
+                    </p>
+                    <p class="text-xs text-gray-500">
+                        Atención a proyectos particulares, profesionales e instituciones en todo Chile.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                <p>© INNOVA 3D - Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-gray-400">Política de privacidad</a>
+                    <a href="#" class="hover:text-gray-400">Términos y condiciones</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
